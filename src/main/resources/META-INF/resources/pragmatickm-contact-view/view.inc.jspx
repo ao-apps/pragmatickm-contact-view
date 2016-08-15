@@ -169,39 +169,40 @@ Arguments:
 			<table class="thinTable">
 				<thead>
 					<tr>
-						<th rowspan="2">Page</th>
+						<c:set var="rowspan" value="${hasPhone or hasIm or hasAddress ? 2 : 1}" />
+						<th rowspan="${rowspan}">Page</th>
 						<c:if test="${hasTitle}">
-							<th rowspan="2">Title</th>
+							<th rowspan="${rowspan}">Title</th>
 						</c:if>
 						<c:if test="${hasFirst}">
-							<th rowspan="2">First</th>
+							<th rowspan="${rowspan}">First</th>
 						</c:if>
 						<c:if test="${hasMiddle}">
-							<th rowspan="2">Middle</th>
+							<th rowspan="${rowspan}">Middle</th>
 						</c:if>
 						<c:if test="${hasNick}">
-							<th rowspan="2">Nick</th>
+							<th rowspan="${rowspan}">Nick</th>
 						</c:if>
 						<c:if test="${hasLast}">
-							<th rowspan="2">Last</th>
+							<th rowspan="${rowspan}">Last</th>
 						</c:if>
 						<c:if test="${hasMaiden}">
-							<th rowspan="2">Maiden</th>
+							<th rowspan="${rowspan}">Maiden</th>
 						</c:if>
 						<c:if test="${hasSuffix}">
-							<th rowspan="2">Suffix</th>
+							<th rowspan="${rowspan}">Suffix</th>
 						</c:if>
 						<c:if test="${hasCompany}">
-							<th rowspan="2">Company</th>
+							<th rowspan="${rowspan}">Company</th>
 						</c:if>
 						<c:if test="${hasDepartment}">
-							<th rowspan="2">Department</th>
+							<th rowspan="${rowspan}">Department</th>
 						</c:if>
 						<c:if test="${hasJobTitle}">
-							<th rowspan="2">Job Title</th>
+							<th rowspan="${rowspan}">Job Title</th>
 						</c:if>
 						<c:if test="${hasEmail}">
-							<th rowspan="2">Email</th>
+							<th rowspan="${rowspan}">Email</th>
 						</c:if>
 						<c:if test="${hasPhone}">
 							<th colspan="${hasPhoneComment ? 3 : 2}">Phone Number</th>
@@ -210,7 +211,7 @@ Arguments:
 							<th colspan="${hasImComment ? 3 : 2}">Instant Messaging</th>
 						</c:if>
 						<c:if test="${hasWebPage}">
-							<th rowspan="2">Web Page</th>
+							<th rowspan="${rowspan}">Web Page</th>
 						</c:if>
 						<c:if test="${hasAddress}">
 							<th colspan="${addressColSpan}">Address</th>
