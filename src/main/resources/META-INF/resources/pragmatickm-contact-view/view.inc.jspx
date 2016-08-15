@@ -355,7 +355,7 @@ Arguments:
 										</c:if>
 										<c:if test="${hasEmail}">
 											<c:choose>
-												<c:when test="${contactRow < emailsSize}">
+												<c:when test="${contactRow lt emailsSize}">
 													<c:set var="email" value="${emails[contactRow]}" />
 													<c:set var="emailRowSpan" value="${contactRow==0 and emailsSize==1 ? contactRowCount : 1}" />
 													<td rowspan="${fn:escapeXml(emailRowSpan)}">
@@ -369,7 +369,7 @@ Arguments:
 										</c:if>
 										<c:if test="${hasPhone}">
 											<c:choose>
-												<c:when test="${contactRow < phoneNumbersSize}">
+												<c:when test="${contactRow lt phoneNumbersSize}">
 													<c:set var="phoneNumber" value="${phoneNumbers[contactRow]}" />
 													<c:set var="phoneType" value="${phoneNumber.type}" />
 													<c:set var="phoneRowSpan" value="${contactRow==0 and phoneNumbersSize==1 ? contactRowCount : 1}" />
@@ -394,7 +394,7 @@ Arguments:
 										</c:if>
 										<c:if test="${hasIm}">
 											<c:choose>
-												<c:when test="${contactRow < imsSize}">
+												<c:when test="${contactRow lt imsSize}">
 													<c:set var="im" value="${ims[contactRow]}" />
 													<c:set var="imType" value="${im.type}" />
 													<c:set var="imRowSpan" value="${contactRow==0 and imsSize==1 ? contactRowCount : 1}" />
@@ -419,7 +419,7 @@ Arguments:
 										</c:if>
 										<c:if test="${hasWebPage}">
 											<c:choose>
-												<c:when test="${contactRow < webPagesSize}">
+												<c:when test="${contactRow lt webPagesSize}">
 													<c:set var="webPage" value="${webPages[contactRow]}" />
 													<c:set var="webPageRowSpan" value="${contactRow==0 and webPagesSize==1 ? contactRowCount : 1}" />
 													<td rowspan="${fn:escapeXml(webPageRowSpan)}">
@@ -433,7 +433,7 @@ Arguments:
 										</c:if>
 										<c:if test="${hasAddress}">
 											<c:choose>
-												<c:when test="${contactRow < addressesSize}">
+												<c:when test="${contactRow lt addressesSize}">
 													<c:set var="address" value="${addresses[contactRow]}" />
 													<c:set var="addressType" value="${address.type}" />
 													<c:set var="addressRowSpan" value="${contactRow==0 and addressesSize==1 ? contactRowCount : 1}" />
