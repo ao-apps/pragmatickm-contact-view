@@ -87,7 +87,7 @@ public class ContactView extends View {
 			JSPX_TARGET,
 			request,
 			response,
-			Collections.singletonMap("page", (Object)page)
+			Collections.singletonMap("page", page)
 		);
 	}
 }
