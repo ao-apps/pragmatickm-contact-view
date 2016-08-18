@@ -23,7 +23,9 @@
 package com.pragmatickm.contact.view;
 
 import com.aoindustries.servlet.http.Dispatcher;
+import com.pragmatickm.contact.model.Contact;
 import com.semanticcms.core.model.Page;
+import com.semanticcms.core.servlet.PageUtils;
 import com.semanticcms.core.servlet.View;
 import java.io.IOException;
 import java.util.Collections;
@@ -59,6 +61,11 @@ public class ContactView extends View {
 	@Override
 	public String getName() {
 		return VIEW_NAME;
+	}
+
+	@Override
+	public boolean isApplicable(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Page page) throws ServletException, IOException {
+		return PageUtils.hasElement(servletContext, request, response, page, Contact.class, true);
 	}
 
 	@Override
