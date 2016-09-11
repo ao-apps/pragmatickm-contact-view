@@ -30,7 +30,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 	<groupId>com.pragmatickm</groupId>
 	<artifactId>pragmatickm-contact-view</artifactId>
-	<version>1.2-SNAPSHOT</version>
+	<version>1.2</version>
 	<packaging>jar</packaging>
 
 	<name>PragmaticKM Contact View</name>
@@ -45,7 +45,7 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 		<!--
 		<url>http://github.com/aoindustries/pragmatickm-contact-view</url>
 		-->
-		<tag>HEAD</tag>
+		<tag>pragmatickm-contact-view-1.2</tag>
 	</scm>
 
 	<repositories>
