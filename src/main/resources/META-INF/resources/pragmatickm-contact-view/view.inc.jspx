@@ -30,15 +30,15 @@ Arguments:
 <jsp:root
 	xmlns:ao="http://aoindustries.com/ao-taglib"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:core="https://semanticcms.com/core/taglib/"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:jsp="http://java.sun.com/JSP/Page"
-	xmlns:p="https://semanticcms.com/semanticcms-core-taglib"
 	version="2.1"
 >
 	<jsp:directive.page language="java" buffer="512kb" autoFlush="true" pageEncoding="UTF-8" session="false" />
 	<c:set var="page" value="${arg.page}" />
 	<c:set var="pageRef" value="${page.pageRef}" />
-	<c:set var="contactPages" value="${p:convertPageDagToList(page, 'meta')}" />
+	<c:set var="contactPages" value="${core:convertPageDagToList(page, 'meta')}" />
 
 	<h1>Contacts in <ao:out value="${page.title}" /></h1>
 	<!-- Find which columns are used -->
@@ -68,7 +68,7 @@ Arguments:
 	<c:set var="hasCountry" value="false" />
 	<c:set var="hasComment" value="false" />
 	<c:forEach var="contactPage" items="${contactPages}">
-		<c:set var="contacts" value="${p:filterElements(contactPage, 'com.pragmatickm.contact.model.Contact')}" />
+		<c:set var="contacts" value="${core:filterElements(contactPage, 'com.pragmatickm.contact.model.Contact')}" />
 		<c:set var="contactCount" value="${contactCount + fn:length(contacts)}" />
 		<c:forEach var="contact" items="${contacts}">
 			<c:if test="${!empty contact.title}">
@@ -263,7 +263,7 @@ Arguments:
 				<tbody>
 					<c:set var="contactCount" value="0" />
 					<c:forEach var="contactPage" items="${contactPages}">
-						<c:set var="contacts" value="${p:filterElements(contactPage, 'com.pragmatickm.contact.model.Contact')}" />
+						<c:set var="contacts" value="${core:filterElements(contactPage, 'com.pragmatickm.contact.model.Contact')}" />
 						<!-- Count the number of rows that will be displayed for all contacts of this contactPage -->
 						<c:set var="pageRowCount" value="0" />
 						<c:forEach var="contact" items="${contacts}">
@@ -321,7 +321,7 @@ Arguments:
 								<c:forEach var="contactRow" begin="0" end="${contactRowCount-1}">
 									<tr>
 										<c:if test="${contactStatus.first and contactRow==0}">
-											<td rowspan="${fn:escapeXml(pageRowCount)}"><p:link book="${contactPage.pageRef.book}" page="${contactPage.pageRef.path}" /></td>
+											<td rowspan="${fn:escapeXml(pageRowCount)}"><core:link book="${contactPage.pageRef.book}" page="${contactPage.pageRef.path}" /></td>
 										</c:if>
 										<c:if test="${contactRow==0}">
 											<c:if test="${hasTitle}">
