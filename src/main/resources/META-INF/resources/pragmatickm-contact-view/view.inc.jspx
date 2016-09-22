@@ -321,7 +321,7 @@ Arguments:
 								<c:forEach var="contactRow" begin="0" end="${contactRowCount-1}">
 									<tr>
 										<c:if test="${contactStatus.first and contactRow==0}">
-											<td rowspan="${fn:escapeXml(pageRowCount)}"><core:link book="${contactPage.pageRef.book}" page="${contactPage.pageRef.path}" /></td>
+											<td rowspan="${fn:escapeXml(pageRowCount)}"><core:link book="#{contactPage.pageRef.book}" page="#{contactPage.pageRef.path}" /></td>
 										</c:if>
 										<c:if test="${contactRow==0}">
 											<c:if test="${hasTitle}">
