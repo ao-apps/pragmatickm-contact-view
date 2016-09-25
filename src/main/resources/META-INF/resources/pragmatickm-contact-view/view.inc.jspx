@@ -154,8 +154,8 @@ Arguments:
 			</c:if>
 		</c:forEach>
 	</c:forEach>
-	<c:choose>
-		<c:when test="${contactCount!=0}">
+	<ao:choose>
+		<ao:when test="#{contactCount!=0}">
 			<c:set var="addressColSpan" value="${
 				1
 				+ (hasAddress1 ? 1 : 0)
@@ -356,22 +356,22 @@ Arguments:
 											</c:if>
 										</c:if>
 										<c:if test="${hasEmail}">
-											<c:choose>
-												<c:when test="${contactRow lt emailsSize}">
+											<ao:choose>
+												<ao:when test="#{contactRow lt emailsSize}">
 													<c:set var="email" value="${emails[contactRow]}" />
 													<c:set var="emailRowSpan" value="${contactRow==0 and emailsSize==1 ? contactRowCount : 1}" />
 													<td rowspan="${fn:escapeXml(emailRowSpan)}">
 														<ao:a href="mailto:${email}" />
 													</td>
-												</c:when>
-												<c:when test="${contactRow==emailsSize and emailsSize!=1}">
+												</ao:when>
+												<ao:when test="#{contactRow==emailsSize and emailsSize!=1}">
 													<td rowspan="${fn:escapeXml(contactRowCount - emailsSize)}"></td>
-												</c:when>
-											</c:choose>
+												</ao:when>
+											</ao:choose>
 										</c:if>
 										<c:if test="${hasPhone}">
-											<c:choose>
-												<c:when test="${contactRow lt phoneNumbersSize}">
+											<ao:choose>
+												<ao:when test="#{contactRow lt phoneNumbersSize}">
 													<c:set var="phoneNumber" value="${phoneNumbers[contactRow]}" />
 													<c:set var="phoneType" value="${phoneNumber.type}" />
 													<c:set var="phoneRowSpan" value="${contactRow==0 and phoneNumbersSize==1 ? contactRowCount : 1}" />
@@ -388,15 +388,15 @@ Arguments:
 															<ao:out value="${phoneNumber.comment}" />
 														</td>
 													</c:if>
-												</c:when>
-												<c:when test="${contactRow==phoneNumbersSize and phoneNumbersSize!=1}">
+												</ao:when>
+												<ao:when test="#{contactRow==phoneNumbersSize and phoneNumbersSize!=1}">
 													<td colspan="${hasPhoneComment ? 3 : 2}" rowspan="${fn:escapeXml(contactRowCount - phoneNumbersSize)}"></td>
-												</c:when>
-											</c:choose>
+												</ao:when>
+											</ao:choose>
 										</c:if>
 										<c:if test="${hasIm}">
-											<c:choose>
-												<c:when test="${contactRow lt imsSize}">
+											<ao:choose>
+												<ao:when test="#{contactRow lt imsSize}">
 													<c:set var="im" value="${ims[contactRow]}" />
 													<c:set var="imType" value="${im.type}" />
 													<c:set var="imRowSpan" value="${contactRow==0 and imsSize==1 ? contactRowCount : 1}" />
@@ -413,29 +413,29 @@ Arguments:
 															<ao:out value="${im.comment}" />
 														</td>
 													</c:if>
-												</c:when>
-												<c:when test="${contactRow==imsSize and imsSize!=1}">
+												</ao:when>
+												<ao:when test="#{contactRow==imsSize and imsSize!=1}">
 													<td colspan="${hasImComment ? 3 : 2}" rowspan="${fn:escapeXml(contactRowCount - imsSize)}"></td>
-												</c:when>
-											</c:choose>
+												</ao:when>
+											</ao:choose>
 										</c:if>
 										<c:if test="${hasWebPage}">
-											<c:choose>
-												<c:when test="${contactRow lt webPagesSize}">
+											<ao:choose>
+												<ao:when test="#{contactRow lt webPagesSize}">
 													<c:set var="webPage" value="${webPages[contactRow]}" />
 													<c:set var="webPageRowSpan" value="${contactRow==0 and webPagesSize==1 ? contactRowCount : 1}" />
 													<td rowspan="${fn:escapeXml(webPageRowSpan)}">
 														<ao:a href="${webPage}" />
 													</td>
-												</c:when>
-												<c:when test="${contactRow==webPagesSize and webPagesSize!=1}">
+												</ao:when>
+												<ao:when test="#{contactRow==webPagesSize and webPagesSize!=1}">
 													<td rowspan="${fn:escapeXml(contactRowCount - webPagesSize)}"></td>
-												</c:when>
-											</c:choose>
+												</ao:when>
+											</ao:choose>
 										</c:if>
 										<c:if test="${hasAddress}">
-											<c:choose>
-												<c:when test="${contactRow lt addressesSize}">
+											<ao:choose>
+												<ao:when test="#{contactRow lt addressesSize}">
 													<c:set var="address" value="${addresses[contactRow]}" />
 													<c:set var="addressType" value="${address.type}" />
 													<c:set var="addressRowSpan" value="${contactRow==0 and addressesSize==1 ? contactRowCount : 1}" />
@@ -479,11 +479,11 @@ Arguments:
 															<ao:out value="${address.comment}" />
 														</td>
 													</c:if>
-												</c:when>
-												<c:when test="${contactRow==addressesSize and addressesSize!=1}">
+												</ao:when>
+												<ao:when test="#{contactRow==addressesSize and addressesSize!=1}">
 													<td colspan="${addressColSpan}" rowspan="${fn:escapeXml(contactRowCount - addressesSize)}"></td>
-												</c:when>
-											</c:choose>
+												</ao:when>
+											</ao:choose>
 										</c:if>
 									</tr>
 								</c:forEach>
@@ -492,9 +492,9 @@ Arguments:
 					</c:forEach>
 				</tbody>
 			</table>
-		</c:when>
-		<c:otherwise>
+		</ao:when>
+		<ao:otherwise>
 			<div style="text-align: center">No contacts found.</div>
-		</c:otherwise>
-	</c:choose>
+		</ao:otherwise>
+	</ao:choose>
 </jsp:root>
