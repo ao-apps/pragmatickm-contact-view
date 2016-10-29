@@ -3,6 +3,7 @@
 
 ## Project Links
 * [Project Home](https://pragmatickm.com/contact/view/)
+* [Changelog](https://pragmatickm.com/contact/view/changelog)
 * [API Docs](https://pragmatickm.com/contact/view/apidocs/)
 * [Maven Repository](scpexe://private.cvs.aoindustries.com/var/maven2/pragmatickm)
 * [Git](ssh://private.cvs.aoindustries.com/var/git/pragmatickm-contact-view)
