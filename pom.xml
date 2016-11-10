@@ -34,13 +34,12 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 	<packaging>jar</packaging>
 
 	<properties>
-		<bookPath>/contact/view</bookPath>
 		<shortTitle>View</shortTitle>
 		<description.html><![CDATA[<a target="_top" href="https://semanticcms.com/">SemanticCMS</a> view of all contacts in the current page and all children.]]></description.html>
 	</properties>
 
 	<name>PragmaticKM Contact View</name>
-	<url>https://pragmatickm.com${bookPath}/</url><!-- Can't inherit due to multi-module -->
+	<url>https://pragmatickm.com/contact/view/</url>
 	<description>SemanticCMS view of all contacts in the current page and all children.</description>
 	<inceptionYear>2013</inceptionYear>
 
