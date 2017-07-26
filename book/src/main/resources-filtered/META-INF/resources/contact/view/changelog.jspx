@@ -37,7 +37,7 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2017-07-25T21:16:41-0500"
-		dateModified="2017-07-26T14:11:50-0500"
+		dateModified="2017-07-26T14:29:07-0500"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.pragmatickm:pragmatickm-contact-view:pom.version}" />
@@ -165,7 +165,7 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 			<ul>
 				<li>Switched to JSPX.</li>
 				<li>Controlling rowspan better since the header border was missing at times.</li>
-				<li>Passing args as <![CDATA[Map&lt;String,?&gt;]]> instead of forcing <![CDATA[Map&lt;String,Object&gt;]]></li>
+				<li>Passing args as <code><![CDATA[Map&lt;String,?&gt;]]></code> instead of forcing <code><![CDATA[Map&lt;String,Object&gt;]]></code></li>
 				<li>Added modules.</li>
 			</ul>
 		</changelog:release>
