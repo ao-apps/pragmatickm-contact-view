@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 pragmatickm-contact-view - SemanticCMS view of all contacts in the current page and all children.
-Copyright (C) 2016, 2017  AO Industries, Inc.
+Copyright (C) 2017  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -28,62 +28,42 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 		<groupId>com.pragmatickm</groupId>
 		<artifactId>pragmatickm-parent</artifactId>
 		<version>1.0.2-SNAPSHOT</version>
-		<relativePath>../../parent/pom.xml</relativePath>
+		<relativePath>../../../parent/pom.xml</relativePath>
 	</parent>
 
 	<groupId>com.pragmatickm</groupId>
-	<artifactId>pragmatickm-contact-view</artifactId>
+	<artifactId>pragmatickm-contact-view-book</artifactId>
 	<version>1.3.4-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<properties>
-		<javadoc.breadcrumbs><![CDATA[<a target="_top" href="https://pragmatickm.com/">PragmaticKM</a>
-/ <a target="_top" href="https://pragmatickm.com/contact/">Contact</a>
-/ <a target="_top" href="${project.url}">${shortTitle}</a>]]></javadoc.breadcrumbs>
-		<shortTitle>View</shortTitle>
-		<description.html><![CDATA[<a target="_top" href="https://semanticcms.com/">SemanticCMS</a> view of all contacts in the current page and all children.]]></description.html>
+		<!-- These values are copied from the project being documented -->
+		<documented.groupId>com.pragmatickm</documented.groupId>
+		<documented.artifactId>pragmatickm-contact-view</documented.artifactId>
+		<documented.javaVersion>1.6</documented.javaVersion>
+		<documented.javac.link.javaApi>${javac.link.javaApi.jdk16}</documented.javac.link.javaApi>
+		<documented.name>PragmaticKM Contact View</documented.name>
+		<documented.shortTitle>View</documented.shortTitle>
+		<documented.url>https://pragmatickm.com/contact/view/</documented.url>
+		<documented.description>SemanticCMS view of all contacts in the current page and all children.</documented.description>
+		<documented.inceptionYear>2013</documented.inceptionYear>
+		<documented.scm.url>https://github.com/aoindustries/${documented.artifactId}</documented.scm.url>
+
+		<description.html><![CDATA[Documentation for <a target="_top" href="${documented.url}">${documented.name}</a> in <a target="_top" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
 	</properties>
 
-	<name>PragmaticKM Contact View</name>
-	<url>https://pragmatickm.com/contact/view/</url>
-	<description>SemanticCMS view of all contacts in the current page and all children.</description>
-	<inceptionYear>2013</inceptionYear>
+	<name>${documented.name} Book</name>
+	<url>${documented.url}</url>
+	<description>Documentation for ${documented.name} in SemanticCMS format.</description>
+	<inceptionYear>${documented.inceptionYear}</inceptionYear>
 
 	<scm>
 		<!-- Can't inherit due to multi-module -->
-		<connection>scm:git:git://github.com/aoindustries/${project.artifactId}.git</connection>
-		<developerConnection>scm:git:git@github.com:aoindustries/${project.artifactId}.git</developerConnection>
-		<url>https://github.com/aoindustries/${project.artifactId}</url>
+		<connection>scm:git:git://github.com/aoindustries/${documented.artifactId}.git</connection>
+		<developerConnection>scm:git:git@github.com:aoindustries/${documented.artifactId}.git</developerConnection>
+		<url>${documented.scm.url}</url>
 		<tag>HEAD</tag>
 	</scm>
-
-	<profiles>
-		<profile>
-			<id>release</id>
-			<build>
-				<pluginManagement>
-					<plugins>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-javadoc-plugin</artifactId>
-							<configuration>
-								<links>
-									<link>${javac.link.javaApi}</link>
-									<link>${javac.link.javaeeApi.6}</link>
-									<link>https://aoindustries.com/ao-taglib/apidocs/</link>
-									<link>https://aoindustries.com/aocode-public/apidocs/</link>
-									<link>https://pragmatickm.com/contact/model/apidocs/</link>
-									<link>https://semanticcms.com/core/model/apidocs/</link>
-									<link>https://semanticcms.com/core/servlet/apidocs/</link>
-									<link>https://semanticcms.com/core/taglib/apidocs/</link>
-								</links>
-							</configuration>
-						</plugin>
-					</plugins>
-				</pluginManagement>
-			</build>
-		</profile>
-	</profiles>
 
 	<dependencies>
 		<dependency>
@@ -125,33 +105,37 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 		</dependency>
 		<dependency>
 			<groupId>com.aoindustries</groupId>
+			<artifactId>ao-badges</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aoindustries</groupId>
 			<artifactId>ao-taglib</artifactId>
 			<version>2.3.1</version>
 		</dependency>
 		<dependency>
-			<groupId>com.aoindustries</groupId>
-			<artifactId>aocode-public</artifactId>
-			<version>1.9.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId>
-			<artifactId>pragmatickm-contact-model</artifactId>
-			<version>1.3.4-SNAPSHOT</version>
-		</dependency>
-		<dependency>
 			<groupId>com.semanticcms</groupId>
-			<artifactId>semanticcms-core-model</artifactId>
-			<version>1.8.2</version>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId>
-			<artifactId>semanticcms-core-servlet</artifactId>
-			<version>1.11.0</version>
+			<artifactId>semanticcms-changelog-taglib</artifactId>
+			<version>1.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-core-taglib</artifactId>
 			<version>1.9.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId>
+			<artifactId>semanticcms-section-taglib</artifactId>
+			<version>1.4.3</version>
+		</dependency>
+		<!-- Dependency for dependencyversion-maven-plugin only -->
+		<dependency>
+			<groupId>com.pragmatickm</groupId>
+			<artifactId>pragmatickm-contact-view</artifactId>
+			<version>1.3.4-SNAPSHOT</version>
+			<type>pom</type>
+			<scope>provided</scope>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 </project>
