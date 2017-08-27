@@ -1,6 +1,6 @@
 /*
  * pragmatickm-contact-view - SemanticCMS view of all contacts in the current page and all children.
- * Copyright (C) 2016  AO Industries, Inc.
+ * Copyright (C) 2016, 2017  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -22,17 +22,17 @@
  */
 package com.pragmatickm.contact.view;
 
-import com.semanticcms.core.servlet.SemanticCMS;
+import com.semanticcms.core.renderer.html.HtmlRenderer;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-@WebListener("Registers the \"" + ContactView.VIEW_NAME + "\" view in SemanticCMS.")
+@WebListener("Registers the \"" + ContactView.VIEW_NAME + "\" view in HtmlRenderer.")
 public class ContactViewContextListener implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
-		SemanticCMS.getInstance(event.getServletContext()).addView(new ContactView());
+		HtmlRenderer.getInstance(event.getServletContext()).addView(new ContactView());
 	}
 
 	@Override
