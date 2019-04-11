@@ -1,4 +1,4 @@
-# [<img src="ao-logo.png" alt="AO Logo" width="35" height="40">](https://aoindustries.com/) [PragmaticKM](https://pragmatickm.com/) / [Contact](https://pragmatickm.com/contact/) / [View](https://pragmatickm.com/contact/view/)
+# [<img src="ao-logo.png" alt="AO Logo" width="35" height="40">](https://github.com/aoindustries) [PragmaticKM](https://github.com/aoindustries/pragmatickm) / [Contact](https://github.com/aoindustries/pragmatickm-contact) / [View](https://github.com/aoindustries/pragmatickm-contact-view)
 <p>
 	<a href="https://aoindustries.com/life-cycle#project-current-stable">
 		<img src="https://pragmatickm.com/ao-badges/project-current-stable.svg" alt="project: current stable" />
@@ -24,7 +24,7 @@
 	</a>
 </p>
 
-[SemanticCMS](https://semanticcms.com/) view of all contacts in the current page and all children.
+[SemanticCMS](https://github.com/aoindustries/semanticcms) view of all contacts in the current page and all children.
 
 ## Project Links
 * [Project Home](https://pragmatickm.com/contact/view/)
