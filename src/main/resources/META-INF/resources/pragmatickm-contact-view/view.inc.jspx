@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 pragmatickm-contact-view - SemanticCMS view of all contacts in the current page and all children.
-Copyright (C) 2013, 2014, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2013, 2014, 2015, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -382,7 +382,7 @@ Arguments:
 														</div>
 													</td>
 													<td rowspan="${fn:escapeXml(phoneRowSpan)}" style="white-space:nowrap">
-														<ao:a href="tel:${phoneNumber.number}" />
+														<ao:a href="tel:${fn:replace(phoneNumber.number, ' ', '-')}"><ao:out value="${ao:decodeURI(phoneNumber.number)}" /></ao:a>
 													</td>
 													<c:if test="${hasPhoneComment}">
 														<td rowspan="${fn:escapeXml(phoneRowSpan)}">
