@@ -168,7 +168,7 @@ Arguments:
 				+ (hasCountry ? 1 : 0)
 				+ (hasComment ? 1 : 0)
 			}" />
-			<table class="thinTable">
+			<table class="ao-grid">
 				<thead>
 					<tr>
 						<c:set var="rowspan" value="${hasPhone or hasIm or hasAddress ? 2 : 1}" />
