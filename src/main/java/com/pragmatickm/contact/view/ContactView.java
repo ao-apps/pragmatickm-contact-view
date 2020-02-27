@@ -27,11 +27,15 @@ import com.aoindustries.servlet.http.Dispatcher;
 import com.pragmatickm.contact.model.Contact;
 import com.semanticcms.core.controller.PageUtils;
 import com.semanticcms.core.model.Page;
+import com.semanticcms.core.renderer.html.HtmlRenderer;
 import com.semanticcms.core.renderer.html.View;
 import java.io.IOException;
 import java.util.Collections;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.SkipPageException;
@@ -45,9 +49,23 @@ public class ContactView extends View {
 	 * TODO: Rename "contact" to be consistent with singlular names elsewhere, or "pragmatickm-contact"
 	 *       and other views take on longer names.
 	 */
-	static final String VIEW_NAME = "contacts";
+	public static final String NAME = "contacts";
 
 	private static final String JSPX_TARGET = "/pragmatickm-contact-view/view.inc.jspx";
+
+	@WebListener("Registers the \"" + NAME + "\" view in HtmlRenderer.")
+	public static class Initializer implements ServletContextListener {
+		@Override
+		public void contextInitialized(ServletContextEvent event) {
+			HtmlRenderer.getInstance(event.getServletContext()).addView(new ContactView());
+		}
+		@Override
+		public void contextDestroyed(ServletContextEvent event) {
+			// Do nothing
+		}
+	}
+
+	private ContactView() {}
 
 	@Override
 	public Group getGroup() {
@@ -61,7 +79,7 @@ public class ContactView extends View {
 
 	@Override
 	public String getName() {
-		return VIEW_NAME;
+		return NAME;
 	}
 
 	@Override
