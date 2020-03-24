@@ -30,7 +30,7 @@
 * [Project Home](https://pragmatickm.com/contact/view/)
 * [Changelog](https://pragmatickm.com/contact/view/changelog)
 * [API Docs](https://pragmatickm.com/contact/view/apidocs/)
-* [Maven Central Repository](https://search.maven.org/#search%7Cgav%7C1%7Cg:%22com.pragmatickm%22%20AND%20a:%22pragmatickm-contact-view%22)
+* [Maven Central Repository](https://search.maven.org/artifact/com.pragmatickm/pragmatickm-contact-view)
 * [GitHub](https://github.com/aoindustries/pragmatickm-contact-view)
 
 ## Contact Us
