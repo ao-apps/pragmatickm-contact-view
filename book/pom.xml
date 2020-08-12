@@ -59,6 +59,32 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 		<url>https://github.com/aoindustries/pragmatickm-contact-view/issues</url>
 	</issueManagement>
 
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<usedDependencies>
+						<!-- JSP Only -->
+						<dependency>com.aoindustries:ao-badges</dependency>
+						<dependency>com.aoindustries:ao-taglib</dependency>
+						<dependency>javax.servlet:jstl</dependency>
+						<dependency>com.semanticcms:semanticcms-changelog-taglib</dependency>
+						<dependency>com.semanticcms:semanticcms-core-taglib</dependency>
+						<dependency>com.semanticcms:semanticcms-section-taglib</dependency>
+						<!-- Runtime Direct -->
+						<dependency>org.glassfish.web:jstl-impl</dependency>
+						<dependency>com.semanticcms:semanticcms-core-pages-jspx</dependency>
+					</usedDependencies>
+					<ignoredUnusedDeclaredDependencies>
+						<!-- Dependency for dependencyversion-maven-plugin only -->
+						<dependency>com.pragmatickm:pragmatickm-contact-view:pom</dependency>
+					</ignoredUnusedDeclaredDependencies>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 	<dependencyManagement>
 		<dependencies>
 			<!-- BOM -->
