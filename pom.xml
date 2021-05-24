@@ -88,11 +88,11 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 					<usedDependencies>
 						<!-- JSP Only -->
 						<dependency>com.aoindustries:ao-taglib</dependency>
-						<dependency>javax.servlet:jstl</dependency>
 						<dependency>com.semanticcms:semanticcms-core-taglib</dependency>
+						<dependency>org.apache.taglibs:taglibs-standard-spec</dependency>
 						<!-- Runtime Direct -->
 						<dependency>com.aoindustries:ao-style</dependency>
-						<dependency>org.glassfish.web:jstl-impl</dependency>
+						<dependency>org.apache.taglibs:taglibs-standard-impl</dependency>
 					</usedDependencies>
 				</configuration>
 			</plugin>
@@ -125,7 +125,6 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 										<!-- JSP Only: <groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId> -->
 										<!-- ao-javadoc-offline: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
 										<!-- ao-javadoc-offline: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
-										<!-- JSP Only: <groupId>javax.servlet</groupId><artifactId>jstl</artifactId> -->
 										<artifactItem>
 											<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId><classifier>javadoc</classifier>
 											<includes>element-list, package-list</includes>
@@ -147,6 +146,7 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 											<outputDirectory>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-renderer-html</outputDirectory>
 										</artifactItem>
 										<!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId> -->
+										<!-- JSP Only: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
 									</artifactItems>
 								</configuration>
 							</execution>
@@ -168,7 +168,6 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 								<!-- JSP Only: <groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId> -->
 								<!-- Java EE: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
 								<!-- Java EE: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
-								<!-- JSP Only: <groupId>javax.servlet</groupId><artifactId>jstl</artifactId> -->
 								<offlineLink>
 									<url>https://pragmatickm.com/contact/model/apidocs/</url>
 									<location>${project.build.directory}/offlineLinks/com.pragmatickm/pragmatickm-contact-model</location>
@@ -186,6 +185,7 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 									<location>${project.build.directory}/offlineLinks/com.semanticcms/semanticcms-core-renderer-html</location>
 								</offlineLink>
 								<!-- JSP Only: <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId> -->
+								<!-- JSP Only: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
 								<!-- Java SE -->
 								<offlineLink>
 									<url>${javadoc.link.javase}</url>
@@ -208,17 +208,16 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 		<dependencies>
 			<!-- Direct -->
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.4.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-util</artifactId><version>3.5.1${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-util</artifactId><version>3.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>6.4.1${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>6.5.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<!-- javaee-web-api-bom: <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId> -->
 			<!-- javaee-web-api-bom: <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId> -->
-			<!-- javaee-web-api-bom: <groupId>javax.servlet</groupId><artifactId>jstl</artifactId> -->
 			<dependency>
 				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
@@ -234,6 +233,7 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>2.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
+			<!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
 			<!-- Transitive -->
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-collections</artifactId><version>1.2.0${POST-SNAPSHOT}</version>
@@ -245,10 +245,10 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 				<groupId>com.aoindustries</groupId><artifactId>ao-encoding</artifactId><version>4.0.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-encoding-servlet</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-encoding-servlet</artifactId><version>3.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-encoding-taglib</artifactId><version>1.0.2${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-encoding-taglib</artifactId><version>1.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-fluent-html-any</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
@@ -263,19 +263,19 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 				<groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId><version>1.3.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-filter</artifactId><version>2.3.0${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-filter</artifactId><version>2.4.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-last-modified</artifactId><version>1.2.0${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-last-modified</artifactId><version>1.3.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-subrequest</artifactId><version>1.1.0${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-subrequest</artifactId><version>1.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-tempfiles</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-tempfiles-servlet</artifactId><version>1.1.0${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-tempfiles-servlet</artifactId><version>1.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-tlds</artifactId><version>1.2.0${POST-SNAPSHOT}</version>
@@ -284,7 +284,7 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 				<groupId>com.aoindustries</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.2.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-web-resources-servlet</artifactId><version>0.1.0${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-web-resources-servlet</artifactId><version>0.4.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>aocode-public</artifactId><version>4.9.1${POST-SNAPSHOT}</version>
@@ -315,12 +315,12 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 			</dependency>
 			<!-- Runtime Direct -->
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-style</artifactId><version>1.0.0${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-style</artifactId><version>1.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
-			<!-- javaee-web-api-bom: <groupId>org.glassfish.web</groupId><artifactId>jstl-impl</artifactId> -->
+			<!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId> -->
 			<!-- BOM -->
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>javaee-web-api-bom</artifactId><version>6.0.1${POST-SNAPSHOT}</version>
+				<groupId>com.aoindustries</groupId><artifactId>javaee-web-api-bom</artifactId><version>7.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -345,9 +345,6 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 			<groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>javax.servlet</groupId><artifactId>jstl</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId>
 		</dependency>
 		<dependency>
@@ -362,13 +359,16 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId>
+		</dependency>
 		<!-- Runtime Direct -->
 		<dependency>
 			<groupId>com.aoindustries</groupId><artifactId>ao-style</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.glassfish.web</groupId><artifactId>jstl-impl</artifactId>
+			<groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
