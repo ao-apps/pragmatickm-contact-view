@@ -22,8 +22,8 @@
  */
 package com.pragmatickm.contact.view;
 
-import com.aoindustries.html.servlet.FlowContent;
-import com.aoindustries.servlet.http.Dispatcher;
+import com.aoapps.html.servlet.FlowContent;
+import com.aoapps.servlet.http.Dispatcher;
 import com.pragmatickm.contact.model.Contact;
 import com.semanticcms.core.controller.PageUtils;
 import com.semanticcms.core.model.Page;
