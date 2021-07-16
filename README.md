@@ -10,6 +10,12 @@
 
 [![Build](https://github.com/aoindustries/pragmatickm-contact-view/workflows/Build/badge.svg?branch=1.x)](https://github.com/aoindustries/pragmatickm-contact-view/actions?query=workflow%3ABuild)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.pragmatickm/pragmatickm-contact-view/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.pragmatickm/pragmatickm-contact-view)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?branch=1.x&project=com.pragmatickm%3Apragmatickm-contact-view&metric=alert_status)](https://sonarcloud.io/dashboard?branch=1.x&id=com.pragmatickm%3Apragmatickm-contact-view)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?branch=1.x&project=com.pragmatickm%3Apragmatickm-contact-view&metric=ncloc)](https://sonarcloud.io/component_measures?branch=1.x&id=com.pragmatickm%3Apragmatickm-contact-view&metric=ncloc)  
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?branch=1.x&project=com.pragmatickm%3Apragmatickm-contact-view&metric=reliability_rating)](https://sonarcloud.io/component_measures?branch=1.x&id=com.pragmatickm%3Apragmatickm-contact-view&metric=Reliability)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?branch=1.x&project=com.pragmatickm%3Apragmatickm-contact-view&metric=security_rating)](https://sonarcloud.io/component_measures?branch=1.x&id=com.pragmatickm%3Apragmatickm-contact-view&metric=Security)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?branch=1.x&project=com.pragmatickm%3Apragmatickm-contact-view&metric=sqale_rating)](https://sonarcloud.io/component_measures?branch=1.x&id=com.pragmatickm%3Apragmatickm-contact-view&metric=Maintainability)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?branch=1.x&project=com.pragmatickm%3Apragmatickm-contact-view&metric=coverage)](https://sonarcloud.io/component_measures?branch=1.x&id=com.pragmatickm%3Apragmatickm-contact-view&metric=Coverage)
 
 [SemanticCMS](https://github.com/aoindustries/semanticcms) view of all contacts in the current page and all children.
 
