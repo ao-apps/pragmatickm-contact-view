@@ -257,7 +257,7 @@ along with pragmatickm-contact-view.  If not, see <http://www.gnu.org/licenses /
 			<ul>
 				<li>Switched to JSPX.</li>
 				<li>Controlling rowspan better since the header border was missing at times.</li>
-				<li>Passing args as <code><![CDATA[Map&lt;String,?&gt;]]></code> instead of forcing <code><![CDATA[Map&lt;String,Object&gt;]]></code></li>
+				<li>Passing args as <code><![CDATA[Map&lt;String, ?&gt;]]></code> instead of forcing <code><![CDATA[Map&lt;String, Object&gt;]]></code></li>
 				<li>Added modules.</li>
 			</ul>
 		</changelog:release>
