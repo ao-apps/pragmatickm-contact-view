@@ -43,7 +43,7 @@ import javax.servlet.jsp.SkipPageException;
 /**
  * View of all contacts in the current page and all children.
  */
-public class ContactView extends View {
+public final class ContactView extends View {
 
 	/**
 	 * TODO: Rename "contact" to be consistent with singlular names elsewhere, or "pragmatickm-contact"
@@ -65,7 +65,9 @@ public class ContactView extends View {
 		}
 	}
 
-	private ContactView() {}
+	private ContactView() {
+		// Do nothing
+	}
 
 	@Override
 	public Group getGroup() {
