@@ -1,6 +1,6 @@
 /*
  * pragmatickm-contact-view - SemanticCMS view of all contacts in the current page and all children.
- * Copyright (C) 2016, 2017, 2020, 2021  AO Industries, Inc.
+ * Copyright (C) 2016, 2017, 2020, 2021, 2022  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -20,6 +20,7 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with pragmatickm-contact-view.  If not, see <https://www.gnu.org/licenses/>.
  */
+
 package com.pragmatickm.contact.view;
 
 import com.aoapps.html.servlet.FlowContent;
