@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 pragmatickm-contact-view - SemanticCMS view of all contacts in the current page and all children.
-Copyright (C) 2013, 2014, 2015, 2016, 2019, 2020, 2021  AO Industries, Inc.
-	support@aoindustries.com
-	7262 Bull Pen Cir
-	Mobile, AL 36695
+Copyright (C) 2013, 2014, 2015, 2016, 2019, 2020, 2021, 2022  AO Industries, Inc.
+    support@aoindustries.com
+    7262 Bull Pen Cir
+    Mobile, AL 36695
 
 This file is part of pragmatickm-contact-view.
 
@@ -26,477 +26,477 @@ along with pragmatickm-contact-view.  If not, see <https://www.gnu.org/licenses/
 View of all contacts in the current page and all children.
 
 Arguments:
-	arg.page  The page that should be displayed.
+  arg.page  The page that should be displayed.
 -->
 <jsp:root
-	xmlns:ao="https://oss.aoapps.com/taglib/"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	xmlns:core="https://semanticcms.com/core/taglib/"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-	xmlns:jsp="http://java.sun.com/JSP/Page"
-	version="2.1"
+  xmlns:ao="https://oss.aoapps.com/taglib/"
+  xmlns:c="http://java.sun.com/jsp/jstl/core"
+  xmlns:core="https://semanticcms.com/core/taglib/"
+  xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+  version="2.1"
 >
-	<jsp:directive.page language="java" pageEncoding="UTF-8" />
-	<jsp:directive.page session="false" />
-	<c:set var="page" value="${arg.page}" />
-	<c:set var="pageRef" value="${page.pageRef}" />
-	<c:set var="contactPages" value="${core:convertPageDagToList(page, 'meta')}" />
+  <jsp:directive.page language="java" pageEncoding="UTF-8" />
+  <jsp:directive.page session="false" />
+  <c:set var="page" value="${arg.page}" />
+  <c:set var="pageRef" value="${page.pageRef}" />
+  <c:set var="contactPages" value="${core:convertPageDagToList(page, 'meta')}" />
 
-	<h1>Contacts in <ao:out value="${page.title}" /></h1>
-	<!-- Find which columns are used -->
-	<c:set var="contactCount" value="0" />
-	<c:set var="hasTitle" value="false" />
-	<c:set var="hasFirst" value="false" />
-	<c:set var="hasMiddle" value="false" />
-	<c:set var="hasNick" value="false" />
-	<c:set var="hasLast" value="false" />
-	<c:set var="hasMaiden" value="false" />
-	<c:set var="hasSuffix" value="false" />
-	<c:set var="hasCompany" value="false" />
-	<c:set var="hasDepartment" value="false" />
-	<c:set var="hasJobTitle" value="false" />
-	<c:set var="hasEmail" value="false" />
-	<c:set var="hasPhone" value="false" />
-	<c:set var="hasPhoneComment" value="false" />
-	<c:set var="hasIm" value="false" />
-	<c:set var="hasImComment" value="false" />
-	<c:set var="hasWebPage" value="false" />
-	<c:set var="hasAddress" value="false" />
-	<c:set var="hasAddress1" value="false" />
-	<c:set var="hasAddress2" value="false" />
-	<c:set var="hasCity" value="false" />
-	<c:set var="hasStateProv" value="false" />
-	<c:set var="hasZipPostal" value="false" />
-	<c:set var="hasCountry" value="false" />
-	<c:set var="hasComment" value="false" />
-	<c:forEach var="contactPage" items="${contactPages}">
-		<c:set var="contacts" value="${core:filterElements(contactPage, 'com.pragmatickm.contact.model.Contact')}" />
-		<c:set var="contactCount" value="${contactCount + fn:length(contacts)}" />
-		<c:forEach var="contact" items="${contacts}">
-			<c:if test="${!empty contact.title}">
-				<c:set var="hasTitle" value="true" />
-			</c:if>
-			<c:if test="${!empty contact.first}">
-				<c:set var="hasFirst" value="true" />
-			</c:if>
-			<c:if test="${!empty contact.middle}">
-				<c:set var="hasMiddle" value="true" />
-			</c:if>
-			<c:if test="${!empty contact.nick}">
-				<c:set var="hasNick" value="true" />
-			</c:if>
-			<c:if test="${!empty contact.last}">
-				<c:set var="hasLast" value="true" />
-			</c:if>
-			<c:if test="${!empty contact.maiden}">
-				<c:set var="hasMaiden" value="true" />
-			</c:if>
-			<c:if test="${!empty contact.suffix}">
-				<c:set var="hasSuffix" value="true" />
-			</c:if>
-			<c:if test="${!empty contact.company}">
-				<c:set var="hasCompany" value="true" />
-			</c:if>
-			<c:if test="${!empty contact.department}">
-				<c:set var="hasDepartment" value="true" />
-			</c:if>
-			<c:if test="${!empty contact.jobTitle}">
-				<c:set var="hasJobTitle" value="true" />
-			</c:if>
-			<c:if test="${!empty contact.emails}">
-				<c:set var="hasEmail" value="true" />
-			</c:if>
-			<c:set var="phoneNumbers" value="${contact.phoneNumbers}" />
-			<c:if test="${!empty phoneNumbers}">
-				<c:set var="hasPhone" value="true" />
-				<c:forEach var="phoneNumber" items="${phoneNumbers}">
-					<c:if test="${!empty phoneNumber.comment}">
-						<c:set var="hasPhoneComment" value="true" />
-					</c:if>
-				</c:forEach>
-			</c:if>
-			<c:set var="ims" value="${contact.ims}" />
-			<c:if test="${!empty ims}">
-				<c:set var="hasIm" value="true" />
-				<c:forEach var="im" items="${ims}">
-					<c:if test="${!empty im.comment}">
-						<c:set var="hasImComment" value="true" />
-					</c:if>
-				</c:forEach>
-			</c:if>
-			<c:if test="${!empty contact.webPages}">
-				<c:set var="hasWebPage" value="true" />
-			</c:if>
-			<c:set var="addresses" value="${contact.addresses}" />
-			<c:if test="${!empty addresses}">
-				<c:set var="hasAddress" value="true" />
-				<c:forEach var="address" items="${addresses}">
-					<c:if test="${!empty address.address1}">
-						<c:set var="hasAddress1" value="true" />
-					</c:if>
-					<c:if test="${!empty address.address2}">
-						<c:set var="hasAddress2" value="true" />
-					</c:if>
-					<c:if test="${!empty address.city}">
-						<c:set var="hasCity" value="true" />
-					</c:if>
-					<c:if test="${!empty address.stateProv}">
-						<c:set var="hasStateProv" value="true" />
-					</c:if>
-					<c:if test="${!empty address.zipPostal}">
-						<c:set var="hasZipPostal" value="true" />
-					</c:if>
-					<c:if test="${!empty address.country}">
-						<c:set var="hasCountry" value="true" />
-					</c:if>
-					<c:if test="${!empty address.comment}">
-						<c:set var="hasComment" value="true" />
-					</c:if>
-				</c:forEach>
-			</c:if>
-		</c:forEach>
-	</c:forEach>
-	<ao:choose>
-		<ao:when test="#{contactCount!=0}">
-			<c:set var="addressColSpan" value="${
-				1
-				+ (hasAddress1 ? 1 : 0)
-				+ (hasAddress2 ? 1 : 0)
-				+ (hasCity ? 1 : 0)
-				+ (hasStateProv ? 1 : 0)
-				+ (hasZipPostal ? 1 : 0)
-				+ (hasCountry ? 1 : 0)
-				+ (hasComment ? 1 : 0)
-			}" />
-			<table class="ao-grid">
-				<thead>
-					<tr>
-						<c:set var="rowspan" value="${hasPhone or hasIm or hasAddress ? 2 : 1}" />
-						<th rowspan="${rowspan}">Page</th>
-						<c:if test="${hasTitle}">
-							<th rowspan="${rowspan}">Title</th>
-						</c:if>
-						<c:if test="${hasFirst}">
-							<th rowspan="${rowspan}">First</th>
-						</c:if>
-						<c:if test="${hasMiddle}">
-							<th rowspan="${rowspan}">Middle</th>
-						</c:if>
-						<c:if test="${hasNick}">
-							<th rowspan="${rowspan}">Nick</th>
-						</c:if>
-						<c:if test="${hasLast}">
-							<th rowspan="${rowspan}">Last</th>
-						</c:if>
-						<c:if test="${hasMaiden}">
-							<th rowspan="${rowspan}">Maiden</th>
-						</c:if>
-						<c:if test="${hasSuffix}">
-							<th rowspan="${rowspan}">Suffix</th>
-						</c:if>
-						<c:if test="${hasCompany}">
-							<th rowspan="${rowspan}">Company</th>
-						</c:if>
-						<c:if test="${hasDepartment}">
-							<th rowspan="${rowspan}">Department</th>
-						</c:if>
-						<c:if test="${hasJobTitle}">
-							<th rowspan="${rowspan}">Job Title</th>
-						</c:if>
-						<c:if test="${hasEmail}">
-							<th rowspan="${rowspan}">Email</th>
-						</c:if>
-						<c:if test="${hasPhone}">
-							<th colspan="${hasPhoneComment ? 3 : 2}">Phone Number</th>
-						</c:if>
-						<c:if test="${hasIm}">
-							<th colspan="${hasImComment ? 3 : 2}">Instant Messaging</th>
-						</c:if>
-						<c:if test="${hasWebPage}">
-							<th rowspan="${rowspan}">Web Page</th>
-						</c:if>
-						<c:if test="${hasAddress}">
-							<th colspan="${addressColSpan}">Address</th>
-						</c:if>
-					</tr>
-					<c:if test="${hasPhone or hasIm or hasAddress}">
-						<tr>
-							<c:if test="${hasPhone}">
-								<th>Type</th>
-								<th>Number</th>
-								<c:if test="${hasPhoneComment}">
-									<th>Comment</th>
-								</c:if>
-							</c:if>
-							<c:if test="${hasIm}">
-								<th>Type</th>
-								<th>Handle</th>
-								<c:if test="${hasImComment}">
-									<th>Comment</th>
-								</c:if>
-							</c:if>
-							<c:if test="${hasAddress}">
-								<th>Type</th>
-								<c:if test="${hasAddress1}">
-									<th>Address 1</th>
-								</c:if>
-								<c:if test="${hasAddress2}">
-									<th>Address 2</th>
-								</c:if>
-								<c:if test="${hasCity}">
-									<th>City</th>
-								</c:if>
-								<c:if test="${hasStateProv}">
-									<th>State/Prov</th>
-								</c:if>
-								<c:if test="${hasZipPostal}">
-									<th>ZIP/Postal</th>
-								</c:if>
-								<c:if test="${hasCountry}">
-									<th>Country</th>
-								</c:if>
-								<c:if test="${hasComment}">
-									<th>Comment</th>
-								</c:if>
-							</c:if>
-						</tr>
-					</c:if>
-				</thead>
-				<tbody>
-					<c:set var="contactCount" value="0" />
-					<c:forEach var="contactPage" items="${contactPages}">
-						<c:set var="contacts" value="${core:filterElements(contactPage, 'com.pragmatickm.contact.model.Contact')}" />
-						<!-- Count the number of rows that will be displayed for all contacts of this contactPage -->
-						<c:set var="pageRowCount" value="0" />
-						<c:forEach var="contact" items="${contacts}">
-							<c:set var="contactRowCount" value="1" />
-							<c:set var="emailsSize" value="${fn:length(contact.emails)}" />
-							<c:if test="${emailsSize > contactRowCount}">
-								<c:set var="contactRowCount" value="${emailsSize}" />
-							</c:if>
-							<c:set var="phoneNumbersSize" value="${fn:length(contact.phoneNumbers)}" />
-							<c:if test="${phoneNumbersSize > contactRowCount}">
-								<c:set var="contactRowCount" value="${phoneNumbersSize}" />
-							</c:if>
-							<c:set var="imsSize" value="${fn:length(contact.ims)}" />
-							<c:if test="${imsSize > contactRowCount}">
-								<c:set var="contactRowCount" value="${imsSize}" />
-							</c:if>
-							<c:set var="webPagesSize" value="${fn:length(contact.webPages)}" />
-							<c:if test="${webPagesSize > contactRowCount}">
-								<c:set var="contactRowCount" value="${webPagesSize}" />
-							</c:if>
-							<c:set var="addressesSize" value="${fn:length(contact.addresses)}" />
-							<c:if test="${addressesSize > contactRowCount}">
-								<c:set var="contactRowCount" value="${addressesSize}" />
-							</c:if>
-							<c:set var="pageRowCount" value="${pageRowCount + contactRowCount}" />
-						</c:forEach>
-						<c:if test="${pageRowCount!=0}">
-							<c:forEach var="contact" items="${contacts}" varStatus="contactStatus">
-								<c:set var="contactRowCount" value="1" />
-								<c:set var="emails" value="${contact.emails}" />
-								<c:set var="emailsSize" value="${fn:length(emails)}" />
-								<c:if test="${emailsSize > contactRowCount}">
-									<c:set var="contactRowCount" value="${emailsSize}" />
-								</c:if>
-								<c:set var="phoneNumbers" value="${contact.phoneNumbers}" />
-								<c:set var="phoneNumbersSize" value="${fn:length(phoneNumbers)}" />
-								<c:if test="${phoneNumbersSize > contactRowCount}">
-									<c:set var="contactRowCount" value="${phoneNumbersSize}" />
-								</c:if>
-								<c:set var="ims" value="${contact.ims}" />
-								<c:set var="imsSize" value="${fn:length(ims)}" />
-								<c:if test="${imsSize > contactRowCount}">
-									<c:set var="contactRowCount" value="${imsSize}" />
-								</c:if>
-								<c:set var="webPages" value="${contact.webPages}" />
-								<c:set var="webPagesSize" value="${fn:length(webPages)}" />
-								<c:if test="${webPagesSize > contactRowCount}">
-									<c:set var="contactRowCount" value="${webPagesSize}" />
-								</c:if>
-								<c:set var="addresses" value="${contact.addresses}" />
-								<c:set var="addressesSize" value="${fn:length(addresses)}" />
-								<c:if test="${addressesSize > contactRowCount}">
-									<c:set var="contactRowCount" value="${addressesSize}" />
-								</c:if>
-								<c:forEach var="contactRow" begin="0" end="${contactRowCount-1}">
-									<tr>
-										<c:if test="${contactStatus.first and contactRow==0}">
-											<td rowspan="${fn:escapeXml(pageRowCount)}"><core:link book="#{contactPage.pageRef.book}" page="#{contactPage.pageRef.path}" /></td>
-										</c:if>
-										<c:if test="${contactRow==0}">
-											<c:if test="${hasTitle}">
-												<td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.title}" /></td>
-											</c:if>
-											<c:if test="${hasFirst}">
-												<td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.first}" /></td>
-											</c:if>
-											<c:if test="${hasMiddle}">
-												<td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.middle}" /></td>
-											</c:if>
-											<c:if test="${hasNick}">
-												<td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.nick}" /></td>
-											</c:if>
-											<c:if test="${hasLast}">
-												<td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.last}" /></td>
-											</c:if>
-											<c:if test="${hasMaiden}">
-												<td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.maiden}" /></td>
-											</c:if>
-											<c:if test="${hasSuffix}">
-												<td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.suffix}" /></td>
-											</c:if>
-											<c:if test="${hasCompany}">
-												<td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.company}" /></td>
-											</c:if>
-											<c:if test="${hasDepartment}">
-												<td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.department}" /></td>
-											</c:if>
-											<c:if test="${hasJobTitle}">
-												<td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.jobTitle}" /></td>
-											</c:if>
-										</c:if>
-										<c:if test="${hasEmail}">
-											<ao:choose>
-												<ao:when test="#{contactRow lt emailsSize}">
-													<c:set var="email" value="${emails[contactRow]}" />
-													<c:set var="emailRowSpan" value="${contactRow==0 and emailsSize==1 ? contactRowCount : 1}" />
-													<td rowspan="${fn:escapeXml(emailRowSpan)}">
-														<ao:a href="mailto:${email}" />
-													</td>
-												</ao:when>
-												<ao:when test="#{contactRow==emailsSize and emailsSize!=1}">
-													<td rowspan="${fn:escapeXml(contactRowCount - emailsSize)}"></td>
-												</ao:when>
-											</ao:choose>
-										</c:if>
-										<c:if test="${hasPhone}">
-											<ao:choose>
-												<ao:when test="#{contactRow lt phoneNumbersSize}">
-													<c:set var="phoneNumber" value="${phoneNumbers[contactRow]}" />
-													<c:set var="phoneType" value="${phoneNumber.type}" />
-													<c:set var="phoneRowSpan" value="${contactRow==0 and phoneNumbersSize==1 ? contactRowCount : 1}" />
-													<td rowspan="${fn:escapeXml(phoneRowSpan)}">
-														<div class="${fn:escapeXml(phoneType.cssClass)}">
-															<ao:out value="${phoneType.label}" />
-														</div>
-													</td>
-													<td rowspan="${fn:escapeXml(phoneRowSpan)}" style="white-space:nowrap">
-														<ao:a href="tel:${fn:replace(phoneNumber.number, ' ', '-')}"><ao:out value="${ao:decodeURI(phoneNumber.number)}" /></ao:a>
-													</td>
-													<c:if test="${hasPhoneComment}">
-														<td rowspan="${fn:escapeXml(phoneRowSpan)}">
-															<ao:out value="${phoneNumber.comment}" />
-														</td>
-													</c:if>
-												</ao:when>
-												<ao:when test="#{contactRow==phoneNumbersSize and phoneNumbersSize!=1}">
-													<td colspan="${hasPhoneComment ? 3 : 2}" rowspan="${fn:escapeXml(contactRowCount - phoneNumbersSize)}"></td>
-												</ao:when>
-											</ao:choose>
-										</c:if>
-										<c:if test="${hasIm}">
-											<ao:choose>
-												<ao:when test="#{contactRow lt imsSize}">
-													<c:set var="im" value="${ims[contactRow]}" />
-													<c:set var="imType" value="${im.type}" />
-													<c:set var="imRowSpan" value="${contactRow==0 and imsSize==1 ? contactRowCount : 1}" />
-													<td rowspan="${fn:escapeXml(imRowSpan)}">
-														<div class="${fn:escapeXml(imType.cssClass)}">
-															<ao:out value="${imType.label}" />
-														</div>
-													</td>
-													<td rowspan="${fn:escapeXml(imRowSpan)}" style="white-space:nowrap">
-														<ao:out value="${im.handle}" />
-													</td>
-													<c:if test="${hasImComment}">
-														<td rowspan="${fn:escapeXml(imRowSpan)}">
-															<ao:out value="${im.comment}" />
-														</td>
-													</c:if>
-												</ao:when>
-												<ao:when test="#{contactRow==imsSize and imsSize!=1}">
-													<td colspan="${hasImComment ? 3 : 2}" rowspan="${fn:escapeXml(contactRowCount - imsSize)}"></td>
-												</ao:when>
-											</ao:choose>
-										</c:if>
-										<c:if test="${hasWebPage}">
-											<ao:choose>
-												<ao:when test="#{contactRow lt webPagesSize}">
-													<c:set var="webPage" value="${webPages[contactRow]}" />
-													<c:set var="webPageRowSpan" value="${contactRow==0 and webPagesSize==1 ? contactRowCount : 1}" />
-													<td rowspan="${fn:escapeXml(webPageRowSpan)}">
-														<ao:a href="${webPage}" />
-													</td>
-												</ao:when>
-												<ao:when test="#{contactRow==webPagesSize and webPagesSize!=1}">
-													<td rowspan="${fn:escapeXml(contactRowCount - webPagesSize)}"></td>
-												</ao:when>
-											</ao:choose>
-										</c:if>
-										<c:if test="${hasAddress}">
-											<ao:choose>
-												<ao:when test="#{contactRow lt addressesSize}">
-													<c:set var="address" value="${addresses[contactRow]}" />
-													<c:set var="addressType" value="${address.type}" />
-													<c:set var="addressRowSpan" value="${contactRow==0 and addressesSize==1 ? contactRowCount : 1}" />
-													<td rowspan="${fn:escapeXml(addressRowSpan)}">
-														<div class="${fn:escapeXml(addressType.cssClass)}">
-															<ao:out value="${addressType.shortLabel}" />
-														</div>
-													</td>
-													<c:if test="${hasAddress1}">
-														<td rowspan="${fn:escapeXml(addressRowSpan)}" style="white-space:nowrap">
-															<ao:out value="${address.address1}" />
-														</td>
-													</c:if>
-													<c:if test="${hasAddress2}">
-														<td rowspan="${fn:escapeXml(addressRowSpan)}" style="white-space:nowrap">
-															<ao:out value="${address.address2}" />
-														</td>
-													</c:if>
-													<c:if test="${hasCity}">
-														<td rowspan="${fn:escapeXml(addressRowSpan)}" style="white-space:nowrap">
-															<ao:out value="${address.city}" />
-														</td>
-													</c:if>
-													<c:if test="${hasStateProv}">
-														<td rowspan="${fn:escapeXml(addressRowSpan)}" style="white-space:nowrap">
-															<ao:out value="${address.stateProv}" />
-														</td>
-													</c:if>
-													<c:if test="${hasZipPostal}">
-														<td rowspan="${fn:escapeXml(addressRowSpan)}" style="white-space:nowrap">
-															<ao:out value="${address.zipPostal}" />
-														</td>
-													</c:if>
-													<c:if test="${hasCountry}">
-														<td rowspan="${fn:escapeXml(addressRowSpan)}" style="white-space:nowrap">
-															<ao:out value="${address.country}" />
-														</td>
-													</c:if>
-													<c:if test="${hasComment}">
-														<td rowspan="${fn:escapeXml(addressRowSpan)}">
-															<ao:out value="${address.comment}" />
-														</td>
-													</c:if>
-												</ao:when>
-												<ao:when test="#{contactRow==addressesSize and addressesSize!=1}">
-													<td colspan="${addressColSpan}" rowspan="${fn:escapeXml(contactRowCount - addressesSize)}"></td>
-												</ao:when>
-											</ao:choose>
-										</c:if>
-									</tr>
-								</c:forEach>
-							</c:forEach>
-						</c:if>
-					</c:forEach>
-				</tbody>
-			</table>
-		</ao:when>
-		<ao:otherwise>
-			<div style="text-align: center">No contacts found.</div>
-		</ao:otherwise>
-	</ao:choose>
+  <h1>Contacts in <ao:out value="${page.title}" /></h1>
+  <!-- Find which columns are used -->
+  <c:set var="contactCount" value="0" />
+  <c:set var="hasTitle" value="false" />
+  <c:set var="hasFirst" value="false" />
+  <c:set var="hasMiddle" value="false" />
+  <c:set var="hasNick" value="false" />
+  <c:set var="hasLast" value="false" />
+  <c:set var="hasMaiden" value="false" />
+  <c:set var="hasSuffix" value="false" />
+  <c:set var="hasCompany" value="false" />
+  <c:set var="hasDepartment" value="false" />
+  <c:set var="hasJobTitle" value="false" />
+  <c:set var="hasEmail" value="false" />
+  <c:set var="hasPhone" value="false" />
+  <c:set var="hasPhoneComment" value="false" />
+  <c:set var="hasIm" value="false" />
+  <c:set var="hasImComment" value="false" />
+  <c:set var="hasWebPage" value="false" />
+  <c:set var="hasAddress" value="false" />
+  <c:set var="hasAddress1" value="false" />
+  <c:set var="hasAddress2" value="false" />
+  <c:set var="hasCity" value="false" />
+  <c:set var="hasStateProv" value="false" />
+  <c:set var="hasZipPostal" value="false" />
+  <c:set var="hasCountry" value="false" />
+  <c:set var="hasComment" value="false" />
+  <c:forEach var="contactPage" items="${contactPages}">
+    <c:set var="contacts" value="${core:filterElements(contactPage, 'com.pragmatickm.contact.model.Contact')}" />
+    <c:set var="contactCount" value="${contactCount + fn:length(contacts)}" />
+    <c:forEach var="contact" items="${contacts}">
+      <c:if test="${!empty contact.title}">
+        <c:set var="hasTitle" value="true" />
+      </c:if>
+      <c:if test="${!empty contact.first}">
+        <c:set var="hasFirst" value="true" />
+      </c:if>
+      <c:if test="${!empty contact.middle}">
+        <c:set var="hasMiddle" value="true" />
+      </c:if>
+      <c:if test="${!empty contact.nick}">
+        <c:set var="hasNick" value="true" />
+      </c:if>
+      <c:if test="${!empty contact.last}">
+        <c:set var="hasLast" value="true" />
+      </c:if>
+      <c:if test="${!empty contact.maiden}">
+        <c:set var="hasMaiden" value="true" />
+      </c:if>
+      <c:if test="${!empty contact.suffix}">
+        <c:set var="hasSuffix" value="true" />
+      </c:if>
+      <c:if test="${!empty contact.company}">
+        <c:set var="hasCompany" value="true" />
+      </c:if>
+      <c:if test="${!empty contact.department}">
+        <c:set var="hasDepartment" value="true" />
+      </c:if>
+      <c:if test="${!empty contact.jobTitle}">
+        <c:set var="hasJobTitle" value="true" />
+      </c:if>
+      <c:if test="${!empty contact.emails}">
+        <c:set var="hasEmail" value="true" />
+      </c:if>
+      <c:set var="phoneNumbers" value="${contact.phoneNumbers}" />
+      <c:if test="${!empty phoneNumbers}">
+        <c:set var="hasPhone" value="true" />
+        <c:forEach var="phoneNumber" items="${phoneNumbers}">
+          <c:if test="${!empty phoneNumber.comment}">
+            <c:set var="hasPhoneComment" value="true" />
+          </c:if>
+        </c:forEach>
+      </c:if>
+      <c:set var="ims" value="${contact.ims}" />
+      <c:if test="${!empty ims}">
+        <c:set var="hasIm" value="true" />
+        <c:forEach var="im" items="${ims}">
+          <c:if test="${!empty im.comment}">
+            <c:set var="hasImComment" value="true" />
+          </c:if>
+        </c:forEach>
+      </c:if>
+      <c:if test="${!empty contact.webPages}">
+        <c:set var="hasWebPage" value="true" />
+      </c:if>
+      <c:set var="addresses" value="${contact.addresses}" />
+      <c:if test="${!empty addresses}">
+        <c:set var="hasAddress" value="true" />
+        <c:forEach var="address" items="${addresses}">
+          <c:if test="${!empty address.address1}">
+            <c:set var="hasAddress1" value="true" />
+          </c:if>
+          <c:if test="${!empty address.address2}">
+            <c:set var="hasAddress2" value="true" />
+          </c:if>
+          <c:if test="${!empty address.city}">
+            <c:set var="hasCity" value="true" />
+          </c:if>
+          <c:if test="${!empty address.stateProv}">
+            <c:set var="hasStateProv" value="true" />
+          </c:if>
+          <c:if test="${!empty address.zipPostal}">
+            <c:set var="hasZipPostal" value="true" />
+          </c:if>
+          <c:if test="${!empty address.country}">
+            <c:set var="hasCountry" value="true" />
+          </c:if>
+          <c:if test="${!empty address.comment}">
+            <c:set var="hasComment" value="true" />
+          </c:if>
+        </c:forEach>
+      </c:if>
+    </c:forEach>
+  </c:forEach>
+  <ao:choose>
+    <ao:when test="#{contactCount != 0}">
+      <c:set var="addressColSpan" value="${
+        1
+        + (hasAddress1 ? 1 : 0)
+        + (hasAddress2 ? 1 : 0)
+        + (hasCity ? 1 : 0)
+        + (hasStateProv ? 1 : 0)
+        + (hasZipPostal ? 1 : 0)
+        + (hasCountry ? 1 : 0)
+        + (hasComment ? 1 : 0)
+      }" />
+      <table class="ao-grid">
+        <thead>
+          <tr>
+            <c:set var="rowspan" value="${hasPhone or hasIm or hasAddress ? 2 : 1}" />
+            <th rowspan="${rowspan}">Page</th>
+            <c:if test="${hasTitle}">
+              <th rowspan="${rowspan}">Title</th>
+            </c:if>
+            <c:if test="${hasFirst}">
+              <th rowspan="${rowspan}">First</th>
+            </c:if>
+            <c:if test="${hasMiddle}">
+              <th rowspan="${rowspan}">Middle</th>
+            </c:if>
+            <c:if test="${hasNick}">
+              <th rowspan="${rowspan}">Nick</th>
+            </c:if>
+            <c:if test="${hasLast}">
+              <th rowspan="${rowspan}">Last</th>
+            </c:if>
+            <c:if test="${hasMaiden}">
+              <th rowspan="${rowspan}">Maiden</th>
+            </c:if>
+            <c:if test="${hasSuffix}">
+              <th rowspan="${rowspan}">Suffix</th>
+            </c:if>
+            <c:if test="${hasCompany}">
+              <th rowspan="${rowspan}">Company</th>
+            </c:if>
+            <c:if test="${hasDepartment}">
+              <th rowspan="${rowspan}">Department</th>
+            </c:if>
+            <c:if test="${hasJobTitle}">
+              <th rowspan="${rowspan}">Job Title</th>
+            </c:if>
+            <c:if test="${hasEmail}">
+              <th rowspan="${rowspan}">Email</th>
+            </c:if>
+            <c:if test="${hasPhone}">
+              <th colspan="${hasPhoneComment ? 3 : 2}">Phone Number</th>
+            </c:if>
+            <c:if test="${hasIm}">
+              <th colspan="${hasImComment ? 3 : 2}">Instant Messaging</th>
+            </c:if>
+            <c:if test="${hasWebPage}">
+              <th rowspan="${rowspan}">Web Page</th>
+            </c:if>
+            <c:if test="${hasAddress}">
+              <th colspan="${addressColSpan}">Address</th>
+            </c:if>
+          </tr>
+          <c:if test="${hasPhone or hasIm or hasAddress}">
+            <tr>
+              <c:if test="${hasPhone}">
+                <th>Type</th>
+                <th>Number</th>
+                <c:if test="${hasPhoneComment}">
+                  <th>Comment</th>
+                </c:if>
+              </c:if>
+              <c:if test="${hasIm}">
+                <th>Type</th>
+                <th>Handle</th>
+                <c:if test="${hasImComment}">
+                  <th>Comment</th>
+                </c:if>
+              </c:if>
+              <c:if test="${hasAddress}">
+                <th>Type</th>
+                <c:if test="${hasAddress1}">
+                  <th>Address 1</th>
+                </c:if>
+                <c:if test="${hasAddress2}">
+                  <th>Address 2</th>
+                </c:if>
+                <c:if test="${hasCity}">
+                  <th>City</th>
+                </c:if>
+                <c:if test="${hasStateProv}">
+                  <th>State/Prov</th>
+                </c:if>
+                <c:if test="${hasZipPostal}">
+                  <th>ZIP/Postal</th>
+                </c:if>
+                <c:if test="${hasCountry}">
+                  <th>Country</th>
+                </c:if>
+                <c:if test="${hasComment}">
+                  <th>Comment</th>
+                </c:if>
+              </c:if>
+            </tr>
+          </c:if>
+        </thead>
+        <tbody>
+          <c:set var="contactCount" value="0" />
+          <c:forEach var="contactPage" items="${contactPages}">
+            <c:set var="contacts" value="${core:filterElements(contactPage, 'com.pragmatickm.contact.model.Contact')}" />
+            <!-- Count the number of rows that will be displayed for all contacts of this contactPage -->
+            <c:set var="pageRowCount" value="0" />
+            <c:forEach var="contact" items="${contacts}">
+              <c:set var="contactRowCount" value="1" />
+              <c:set var="emailsSize" value="${fn:length(contact.emails)}" />
+              <c:if test="${emailsSize > contactRowCount}">
+                <c:set var="contactRowCount" value="${emailsSize}" />
+              </c:if>
+              <c:set var="phoneNumbersSize" value="${fn:length(contact.phoneNumbers)}" />
+              <c:if test="${phoneNumbersSize > contactRowCount}">
+                <c:set var="contactRowCount" value="${phoneNumbersSize}" />
+              </c:if>
+              <c:set var="imsSize" value="${fn:length(contact.ims)}" />
+              <c:if test="${imsSize > contactRowCount}">
+                <c:set var="contactRowCount" value="${imsSize}" />
+              </c:if>
+              <c:set var="webPagesSize" value="${fn:length(contact.webPages)}" />
+              <c:if test="${webPagesSize > contactRowCount}">
+                <c:set var="contactRowCount" value="${webPagesSize}" />
+              </c:if>
+              <c:set var="addressesSize" value="${fn:length(contact.addresses)}" />
+              <c:if test="${addressesSize > contactRowCount}">
+                <c:set var="contactRowCount" value="${addressesSize}" />
+              </c:if>
+              <c:set var="pageRowCount" value="${pageRowCount + contactRowCount}" />
+            </c:forEach>
+            <c:if test="${pageRowCount != 0}">
+              <c:forEach var="contact" items="${contacts}" varStatus="contactStatus">
+                <c:set var="contactRowCount" value="1" />
+                <c:set var="emails" value="${contact.emails}" />
+                <c:set var="emailsSize" value="${fn:length(emails)}" />
+                <c:if test="${emailsSize > contactRowCount}">
+                  <c:set var="contactRowCount" value="${emailsSize}" />
+                </c:if>
+                <c:set var="phoneNumbers" value="${contact.phoneNumbers}" />
+                <c:set var="phoneNumbersSize" value="${fn:length(phoneNumbers)}" />
+                <c:if test="${phoneNumbersSize > contactRowCount}">
+                  <c:set var="contactRowCount" value="${phoneNumbersSize}" />
+                </c:if>
+                <c:set var="ims" value="${contact.ims}" />
+                <c:set var="imsSize" value="${fn:length(ims)}" />
+                <c:if test="${imsSize > contactRowCount}">
+                  <c:set var="contactRowCount" value="${imsSize}" />
+                </c:if>
+                <c:set var="webPages" value="${contact.webPages}" />
+                <c:set var="webPagesSize" value="${fn:length(webPages)}" />
+                <c:if test="${webPagesSize > contactRowCount}">
+                  <c:set var="contactRowCount" value="${webPagesSize}" />
+                </c:if>
+                <c:set var="addresses" value="${contact.addresses}" />
+                <c:set var="addressesSize" value="${fn:length(addresses)}" />
+                <c:if test="${addressesSize > contactRowCount}">
+                  <c:set var="contactRowCount" value="${addressesSize}" />
+                </c:if>
+                <c:forEach var="contactRow" begin="0" end="${contactRowCount-1}">
+                  <tr>
+                    <c:if test="${contactStatus.first and contactRow == 0}">
+                      <td rowspan="${fn:escapeXml(pageRowCount)}"><core:link book="#{contactPage.pageRef.book}" page="#{contactPage.pageRef.path}" /></td>
+                    </c:if>
+                    <c:if test="${contactRow == 0}">
+                      <c:if test="${hasTitle}">
+                        <td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.title}" /></td>
+                      </c:if>
+                      <c:if test="${hasFirst}">
+                        <td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.first}" /></td>
+                      </c:if>
+                      <c:if test="${hasMiddle}">
+                        <td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.middle}" /></td>
+                      </c:if>
+                      <c:if test="${hasNick}">
+                        <td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.nick}" /></td>
+                      </c:if>
+                      <c:if test="${hasLast}">
+                        <td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.last}" /></td>
+                      </c:if>
+                      <c:if test="${hasMaiden}">
+                        <td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.maiden}" /></td>
+                      </c:if>
+                      <c:if test="${hasSuffix}">
+                        <td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.suffix}" /></td>
+                      </c:if>
+                      <c:if test="${hasCompany}">
+                        <td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.company}" /></td>
+                      </c:if>
+                      <c:if test="${hasDepartment}">
+                        <td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.department}" /></td>
+                      </c:if>
+                      <c:if test="${hasJobTitle}">
+                        <td rowspan="${fn:escapeXml(contactRowCount)}"><ao:out value="${contact.jobTitle}" /></td>
+                      </c:if>
+                    </c:if>
+                    <c:if test="${hasEmail}">
+                      <ao:choose>
+                        <ao:when test="#{contactRow lt emailsSize}">
+                          <c:set var="email" value="${emails[contactRow]}" />
+                          <c:set var="emailRowSpan" value="${contactRow == 0 and emailsSize == 1 ? contactRowCount : 1}" />
+                          <td rowspan="${fn:escapeXml(emailRowSpan)}">
+                            <ao:a href="mailto:${email}" />
+                          </td>
+                        </ao:when>
+                        <ao:when test="#{contactRow == emailsSize and emailsSize != 1}">
+                          <td rowspan="${fn:escapeXml(contactRowCount - emailsSize)}"></td>
+                        </ao:when>
+                      </ao:choose>
+                    </c:if>
+                    <c:if test="${hasPhone}">
+                      <ao:choose>
+                        <ao:when test="#{contactRow lt phoneNumbersSize}">
+                          <c:set var="phoneNumber" value="${phoneNumbers[contactRow]}" />
+                          <c:set var="phoneType" value="${phoneNumber.type}" />
+                          <c:set var="phoneRowSpan" value="${contactRow == 0 and phoneNumbersSize == 1 ? contactRowCount : 1}" />
+                          <td rowspan="${fn:escapeXml(phoneRowSpan)}">
+                            <div class="${fn:escapeXml(phoneType.cssClass)}">
+                              <ao:out value="${phoneType.label}" />
+                            </div>
+                          </td>
+                          <td rowspan="${fn:escapeXml(phoneRowSpan)}" style="white-space:nowrap">
+                            <ao:a href="tel:${fn:replace(phoneNumber.number, ' ', '-')}"><ao:out value="${ao:decodeURI(phoneNumber.number)}" /></ao:a>
+                          </td>
+                          <c:if test="${hasPhoneComment}">
+                            <td rowspan="${fn:escapeXml(phoneRowSpan)}">
+                              <ao:out value="${phoneNumber.comment}" />
+                            </td>
+                          </c:if>
+                        </ao:when>
+                        <ao:when test="#{contactRow == phoneNumbersSize and phoneNumbersSize != 1}">
+                          <td colspan="${hasPhoneComment ? 3 : 2}" rowspan="${fn:escapeXml(contactRowCount - phoneNumbersSize)}"></td>
+                        </ao:when>
+                      </ao:choose>
+                    </c:if>
+                    <c:if test="${hasIm}">
+                      <ao:choose>
+                        <ao:when test="#{contactRow lt imsSize}">
+                          <c:set var="im" value="${ims[contactRow]}" />
+                          <c:set var="imType" value="${im.type}" />
+                          <c:set var="imRowSpan" value="${contactRow == 0 and imsSize == 1 ? contactRowCount : 1}" />
+                          <td rowspan="${fn:escapeXml(imRowSpan)}">
+                            <div class="${fn:escapeXml(imType.cssClass)}">
+                              <ao:out value="${imType.label}" />
+                            </div>
+                          </td>
+                          <td rowspan="${fn:escapeXml(imRowSpan)}" style="white-space:nowrap">
+                            <ao:out value="${im.handle}" />
+                          </td>
+                          <c:if test="${hasImComment}">
+                            <td rowspan="${fn:escapeXml(imRowSpan)}">
+                              <ao:out value="${im.comment}" />
+                            </td>
+                          </c:if>
+                        </ao:when>
+                        <ao:when test="#{contactRow == imsSize and imsSize != 1}">
+                          <td colspan="${hasImComment ? 3 : 2}" rowspan="${fn:escapeXml(contactRowCount - imsSize)}"></td>
+                        </ao:when>
+                      </ao:choose>
+                    </c:if>
+                    <c:if test="${hasWebPage}">
+                      <ao:choose>
+                        <ao:when test="#{contactRow lt webPagesSize}">
+                          <c:set var="webPage" value="${webPages[contactRow]}" />
+                          <c:set var="webPageRowSpan" value="${contactRow == 0 and webPagesSize == 1 ? contactRowCount : 1}" />
+                          <td rowspan="${fn:escapeXml(webPageRowSpan)}">
+                            <ao:a href="${webPage}" />
+                          </td>
+                        </ao:when>
+                        <ao:when test="#{contactRow == webPagesSize and webPagesSize != 1}">
+                          <td rowspan="${fn:escapeXml(contactRowCount - webPagesSize)}"></td>
+                        </ao:when>
+                      </ao:choose>
+                    </c:if>
+                    <c:if test="${hasAddress}">
+                      <ao:choose>
+                        <ao:when test="#{contactRow lt addressesSize}">
+                          <c:set var="address" value="${addresses[contactRow]}" />
+                          <c:set var="addressType" value="${address.type}" />
+                          <c:set var="addressRowSpan" value="${contactRow == 0 and addressesSize == 1 ? contactRowCount : 1}" />
+                          <td rowspan="${fn:escapeXml(addressRowSpan)}">
+                            <div class="${fn:escapeXml(addressType.cssClass)}">
+                              <ao:out value="${addressType.shortLabel}" />
+                            </div>
+                          </td>
+                          <c:if test="${hasAddress1}">
+                            <td rowspan="${fn:escapeXml(addressRowSpan)}" style="white-space:nowrap">
+                              <ao:out value="${address.address1}" />
+                            </td>
+                          </c:if>
+                          <c:if test="${hasAddress2}">
+                            <td rowspan="${fn:escapeXml(addressRowSpan)}" style="white-space:nowrap">
+                              <ao:out value="${address.address2}" />
+                            </td>
+                          </c:if>
+                          <c:if test="${hasCity}">
+                            <td rowspan="${fn:escapeXml(addressRowSpan)}" style="white-space:nowrap">
+                              <ao:out value="${address.city}" />
+                            </td>
+                          </c:if>
+                          <c:if test="${hasStateProv}">
+                            <td rowspan="${fn:escapeXml(addressRowSpan)}" style="white-space:nowrap">
+                              <ao:out value="${address.stateProv}" />
+                            </td>
+                          </c:if>
+                          <c:if test="${hasZipPostal}">
+                            <td rowspan="${fn:escapeXml(addressRowSpan)}" style="white-space:nowrap">
+                              <ao:out value="${address.zipPostal}" />
+                            </td>
+                          </c:if>
+                          <c:if test="${hasCountry}">
+                            <td rowspan="${fn:escapeXml(addressRowSpan)}" style="white-space:nowrap">
+                              <ao:out value="${address.country}" />
+                            </td>
+                          </c:if>
+                          <c:if test="${hasComment}">
+                            <td rowspan="${fn:escapeXml(addressRowSpan)}">
+                              <ao:out value="${address.comment}" />
+                            </td>
+                          </c:if>
+                        </ao:when>
+                        <ao:when test="#{contactRow == addressesSize and addressesSize != 1}">
+                          <td colspan="${addressColSpan}" rowspan="${fn:escapeXml(contactRowCount - addressesSize)}"></td>
+                        </ao:when>
+                      </ao:choose>
+                    </c:if>
+                  </tr>
+                </c:forEach>
+              </c:forEach>
+            </c:if>
+          </c:forEach>
+        </tbody>
+      </table>
+    </ao:when>
+    <ao:otherwise>
+      <div style="text-align: center">No contacts found.</div>
+    </ao:otherwise>
+  </ao:choose>
 </jsp:root>
