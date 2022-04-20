@@ -46,77 +46,77 @@ import javax.servlet.jsp.SkipPageException;
  */
 public final class ContactView extends View {
 
-	/**
-	 * TODO: Rename "contact" to be consistent with singlular names elsewhere, or "pragmatickm-contact"
-	 *       and other views take on longer names.
-	 */
-	public static final String NAME = "contacts";
+  /**
+   * TODO: Rename "contact" to be consistent with singlular names elsewhere, or "pragmatickm-contact"
+   *       and other views take on longer names.
+   */
+  public static final String NAME = "contacts";
 
-	private static final String JSPX_TARGET = "/pragmatickm-contact-view/view.inc.jspx";
+  private static final String JSPX_TARGET = "/pragmatickm-contact-view/view.inc.jspx";
 
-	@WebListener("Registers the \"" + NAME + "\" view in SemanticCMS.")
-	public static class Initializer implements ServletContextListener {
-		@Override
-		public void contextInitialized(ServletContextEvent event) {
-			SemanticCMS.getInstance(event.getServletContext()).addView(new ContactView());
-		}
-		@Override
-		public void contextDestroyed(ServletContextEvent event) {
-			// Do nothing
-		}
-	}
+  @WebListener("Registers the \"" + NAME + "\" view in SemanticCMS.")
+  public static class Initializer implements ServletContextListener {
+    @Override
+    public void contextInitialized(ServletContextEvent event) {
+      SemanticCMS.getInstance(event.getServletContext()).addView(new ContactView());
+    }
+    @Override
+    public void contextDestroyed(ServletContextEvent event) {
+      // Do nothing
+    }
+  }
 
-	private ContactView() {
-		// Do nothing
-	}
+  private ContactView() {
+    // Do nothing
+  }
 
-	@Override
-	public Group getGroup() {
-		return Group.VARIABLE;
-	}
+  @Override
+  public Group getGroup() {
+    return Group.VARIABLE;
+  }
 
-	@Override
-	public String getDisplay() {
-		return "Contacts";
-	}
+  @Override
+  public String getDisplay() {
+    return "Contacts";
+  }
 
-	@Override
-	public String getName() {
-		return NAME;
-	}
+  @Override
+  public String getName() {
+    return NAME;
+  }
 
-	@Override
-	public boolean isApplicable(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Page page) throws ServletException, IOException {
-		return PageUtils.hasElement(servletContext, request, response, page, Contact.class, true);
-	}
+  @Override
+  public boolean isApplicable(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Page page) throws ServletException, IOException {
+    return PageUtils.hasElement(servletContext, request, response, page, Contact.class, true);
+  }
 
-	@Override
-	public String getDescription(Page page) {
-		return null;
-	}
+  @Override
+  public String getDescription(Page page) {
+    return null;
+  }
 
-	@Override
-	public String getKeywords(Page page) {
-		return null;
-	}
+  @Override
+  public String getKeywords(Page page) {
+    return null;
+  }
 
-	/**
-	 * This view does not provide additional information unobtainable from source content,
-	 * exclude from search indexes.
-	 */
-	@Override
-	public boolean getAllowRobots(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Page page) {
-		return false;
-	}
+  /**
+   * This view does not provide additional information unobtainable from source content,
+   * exclude from search indexes.
+   */
+  @Override
+  public boolean getAllowRobots(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, Page page) {
+    return false;
+  }
 
-	@Override
-	public <__ extends FlowContent<__>> void doView(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, __ flow, Page page) throws ServletException, IOException, SkipPageException {
-		Dispatcher.include(
-			servletContext,
-			JSPX_TARGET,
-			request,
-			response,
-			Collections.singletonMap("page", page)
-		);
-	}
+  @Override
+  public <__ extends FlowContent<__>> void doView(ServletContext servletContext, HttpServletRequest request, HttpServletResponse response, __ flow, Page page) throws ServletException, IOException, SkipPageException {
+    Dispatcher.include(
+      servletContext,
+      JSPX_TARGET,
+      request,
+      response,
+      Collections.singletonMap("page", page)
+    );
+  }
 }
