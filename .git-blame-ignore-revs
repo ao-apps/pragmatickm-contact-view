@@ -16,3 +16,6 @@
 
 # Performed automatic source code clean-up with rewrite-maven-plugin
 1804cebdced1548ba73f1bb31bac68d96940e170
+
+# Performed manual checkstyle clean-up
+df3d29cda0453d2c759746676ac9a5d7328c12e3
