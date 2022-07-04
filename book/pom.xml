@@ -36,15 +36,15 @@ along with pragmatickm-contact-view.  If not, see <https://www.gnu.org/licenses/
     <module.name>com.pragmatickm.contact.view.book</module.name>
     <!-- These values are copied from the project being documented -->
     <documented.artifactId>pragmatickm-contact-view</documented.artifactId>
-    <documented.name>PragmaticKM Contact View²</documented.name>
+    <documented.name>PragmaticKM Contact View</documented.name>
     <documented.description>SemanticCMS view of all contacts in the current page and all children.</documented.description>
 
     <description.html><![CDATA[Documentation for <a target="${javadoc.target}" href="${project.url}">${documented.name}</a> in <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
   </properties>
 
-  <name>PragmaticKM Contact View² Book</name>
+  <name>PragmaticKM Contact View Book</name>
   <url>https://pragmatickm.com/contact/view/</url>
-  <description>Documentation for PragmaticKM Contact View² in SemanticCMS format.</description>
+  <description>Documentation for PragmaticKM Contact View in SemanticCMS format.</description>
   <inceptionYear>2013</inceptionYear>
 
   <licenses>
