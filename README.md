@@ -23,7 +23,7 @@
 * [Project Home](https://pragmatickm.com/contact/view/)
 * [Changelog](https://pragmatickm.com/contact/view/changelog)
 * [API Docs](https://pragmatickm.com/contact/view/apidocs/)
-* [Maven Central Repository](https://central.sonatype.com/artifact/com.pragmatickm/pragmatickm-contact-view)
+* [Central Repository](https://central.sonatype.com/artifact/com.pragmatickm/pragmatickm-contact-view)
 * [GitHub](https://github.com/ao-apps/pragmatickm-contact-view)
 
 ## Contact Us
