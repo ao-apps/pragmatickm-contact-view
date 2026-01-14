@@ -122,10 +122,6 @@ along with pragmatickm-contact-view.  If not, see <https://www.gnu.org/licenses/
             <dependency>com.semanticcms:semanticcms-core-taglib</dependency>
             <dependency>jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api</dependency>
           </usedDependencies>
-          <ignoredDependencies>
-            <!-- No "module-info.java" in some release builds -->
-            <dependency>com.aoapps:ao-collections</dependency>
-          </ignoredDependencies>
         </configuration>
       </plugin>
     </plugins>
