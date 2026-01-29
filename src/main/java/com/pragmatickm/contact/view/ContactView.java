@@ -55,7 +55,7 @@ public final class ContactView extends View {
   private static final String JSPX_TARGET = "/pragmatickm-contact-view/view.inc.jspx";
 
   /**
-   * Registers the "{@link #NAME}" view in {@link SemanticCMS}.
+   * Registers the "{@link ContactView#NAME}" view in {@link SemanticCMS}.
    */
   @WebListener("Registers the \"" + NAME + "\" view in SemanticCMS.")
   public static class Initializer implements ServletContextListener {
